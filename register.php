@@ -2,7 +2,7 @@
 include_once "header.php";
 ?>
 
-    <style xmlns="http://www.w3.org/1999/html">
+    <style>
         .forma-registracije{
 
             margin: 6% auto 6% auto;
@@ -20,6 +20,8 @@ include_once "header.php";
             color: #d62911;
         }
 
+
+
     </style>
 
 <script>
@@ -30,10 +32,26 @@ $(document).ready(function(){
 
       if($("#pass").val() == $("#passCheck").val()){
 
-      // $("#check").show();
-          $('#check').addClass('bounceIntLeft');
+      $("#check").show();
+      $("#nomatch").hide();
+
+
 
       }
+
+       else{
+          $("#check").hide();
+          $("#nomatch").show();
+
+      }
+
+       if( $("#passCheck").val()== ""){
+
+
+           $("#check").hide();
+           $("#nomatch").hide();
+
+       }
    });
 });
 
@@ -42,17 +60,17 @@ $(document).ready(function(){
 
 
 <div class="forma-registracije">
-<form method="post" action="" >
+<form method="post" action="register_do.php" >
     <fieldset><legend>Registrirajte se <small>(brezplačno)</small></legend>
 
 
         <input name="ime" type="text" placeholder="Ime"  "/>
         <input name="priimek" type="text" placeholder="Priimek"  />
         <input name="mail" type="email" placeholder="Email"  />
-        <i class="fa fa-times error"></i>
+        <i class="fa fa-times error"></i><!-- Preveri v bazi jče je mail še dosegljiv. Če ni se pojavi križec. -->
         <input id="pass" name="pass" type="password" placeholder="Geslo" />
         <input id="passCheck" name="passCheck" type="password" placeholder="Ponovite geslo" />
-       <div id="check" style=""><i class="fa fa-check" style="color: #219917;"></i> &nbsp;Gesli se ujemata.</div>
+       <div id="check" style="display: none;"><i class="fa fa-check" style="color: #219917;"></i> &nbsp;Gesli se ujemata.</div>
         <div id="nomatch" style="display: none;"><i class="fa fa-times" style="color: #d62911;"></i> &nbsp;Gesli se ne ujemata.</div>
         <br/>
 
