@@ -1,5 +1,7 @@
 <?php
 include_once "header.php";
+include_once "core/DBfunctions.php";
+include_once "core/connect.php"
 ?>
 
     <style>

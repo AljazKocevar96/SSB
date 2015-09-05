@@ -77,7 +77,8 @@
 
         <div class="pre-header-right right">
             <a class="fa" title="Facebook" href="https://www.facebook.com/groups/499525183557082/"> &#xf09a; <strong> Poiščite nas na Facebooku </strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="register.php" class="fa" title="registracija"> &#xf007;<strong> Včlani se</strong> </a>
+            <a href="register.php" class="fa" title="registracija"> <i class="fa fa-users"></i> <strong> Včlani se</strong> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="sign_in.php" class="fa" title="prijava"> <i class="fa fa-user"></i> <strong> Prijavi se</strong> </a>
 
 
         </div>
