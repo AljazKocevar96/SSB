@@ -1,7 +1,7 @@
 <?php
 include_once "header.php";
-include_once "core/DBfunctions.php";
-include_once "core/connect.php"
+include_once "core/functions.php";
+include_once "core/connect.php";
 ?>
 
     <style>
@@ -36,20 +36,14 @@ $(document).ready(function(){
 
       $("#check").show();
       $("#nomatch").hide();
-
-
-
       }
 
        else{
           $("#check").hide();
           $("#nomatch").show();
-
       }
 
        if( $("#passCheck").val()== ""){
-
-
            $("#check").hide();
            $("#nomatch").hide();
 
@@ -66,9 +60,9 @@ $(document).ready(function(){
     <fieldset><legend>Registrirajte se <small>(brezplačno)</small></legend>
 
 
-        <input name="ime" type="text" placeholder="Ime"  "/>
-        <input name="priimek" type="text" placeholder="Priimek"  />
-        <input name="mail" type="email" placeholder="Email"  />
+        <input id="formName" name="ime" type="text" placeholder="Ime"  "/>
+        <input id="formSurname" name="priimek" type="text" placeholder="Priimek"  />
+        <input id="formMail" name="mail" type="email" placeholder="Email"  />
         <i class="fa fa-times error"></i><!-- Preveri v bazi jče je mail še dosegljiv. Če ni se pojavi križec. -->
         <input id="pass" name="pass" type="password" placeholder="Geslo" />
         <input id="passCheck" name="passCheck" type="password" placeholder="Ponovite geslo" />
@@ -81,6 +75,41 @@ $(document).ready(function(){
     </fieldset>
 </form>
 </div>
+
+<script>
+
+
+    $("#btnReg").click(function(){
+        var name = $("#formName").val();
+        var surname = $("#formSurname").val();
+        var mail= $("#formMail").val();
+        var pass = $("#pass").val();
+        var passCheck= $("#passCheck").val();
+
+        if($.trim(name).length>0 || $.trim(surname).length>0 || $.trim(mail).length>0 ||
+            $.trim(pass).length>0 || $.trim(passCheck).length>0 ){
+
+            $.ajax({
+               type:"POST",
+                url:"doRegister.php",
+                data:{ime:name,priimek:surname,mail:mail,pass:pass, pass2:passCheck},
+                beforeSend:function(){$("#btnReg").val("Registriram...");},
+                success: function(data){
+
+
+
+                }
+
+            });
+
+        }
+
+
+    });
+
+
+
+</script>
 
 
 <?php
