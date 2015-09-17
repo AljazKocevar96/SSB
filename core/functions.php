@@ -1,7 +1,7 @@
 <?php
 
 function errorHandle(Exception $e){
-echo "Server Error: ".$e->getCode()." Fix it!<br/>";
+echo "Server Error: ".$e->getCode()." Fix it! ";
     $trace= $e->getTrace();
     if($trace[0]['class']!=""){
         $class=$trace[0]['class'];
@@ -11,7 +11,7 @@ echo "Server Error: ".$e->getCode()." Fix it!<br/>";
     $file= $trace[0]['file'];
     $line= $trace[0]['line'];
 
-    $ExceptionOutput= $e->getMessage()."<br/>Class in Metoda: ".$class."->".$method."<br/>File: ".$file."<br/>Line: ".$line;
+    $ExceptionOutput= $e->getMessage()." | Class in Metoda: ".$class."->".$method." | File: ".$file." | Line: ".$line;
     echo $ExceptionOutput;
 
 }

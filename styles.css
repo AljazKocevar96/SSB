@@ -2948,7 +2948,7 @@ label{
 input[type=text],  input[type=email], input[type=password], textarea, input[type=tel],  input[type=range], input[type=url],
 input[type=number]{
  	border: none;
- 	border-radius: 2px;
+ 	border-radius: 5px;
 	padding: .75em 1em;
 	border-style: solid;
 	border-width: 1px;

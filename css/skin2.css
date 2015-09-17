@@ -532,7 +532,7 @@ input[type=number], .widget-event-list li, ul.widget-list li, ul.toggle li, ul.a
 .price-cell, .boxy ul.social-link, .time-table td, .time-table th, .event-table th, .event-table td, .event-table, .evt-month, .evt-single-date,
 .evt-paging, .post-excerpt, aside .widget, .tag-cloud a, .gallery-section, fieldset, ul.tab-nav, ul.tab-nav li, h3.v_nav,
 .borderit{
-	border-color: #eaeaea!important;	
+	border-color: #eaeaea;
 }
 
 
