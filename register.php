@@ -40,10 +40,16 @@ if(!empty($_SESSION['user_id'])){
             display: none;
         }
 
-        .addBorder {
+        .addBorderSucc {
             border: 2px solid;
             border-color: #219917!important;
             background-color: #DDFFDC!important;
+        }
+        .addBorderErr{
+            border: 2px solid;
+            border-color: #890000!important;
+            background-color: #FBCDCD!important;
+
         }
 
 
@@ -59,22 +65,47 @@ $(document).ready(function(){
 
       if($("#pass").val() == $("#passCheck").val()){
 
-      $("#check").show();
-      $("#nomatch").hide();
+      $("#passCSucc").show();
+
       }
 
        else{
-          $("#check").hide();
-          $("#nomatch").show();
+          $("#passCSucc").hide();
+          $("#passCErr").show();
       }
 
        if( $("#passCheck").val()== ""){
-           $("#check").hide();
-           $("#nomatch").hide();
+           $("#passCErr").hide();
+           $("#passCSucc").hide();
 
        }
    });
 });
+
+    function AvalibleMail(){
+        var mail= document.getElementById('formMail').value;
+
+        $.ajax({
+           type:"POST",
+            url:"checkMail.php",
+            data:{mail:mail},
+            success: function(data){
+
+             if(data==="mailFree"){
+                 $("#mailSucc").show();
+                 $("#formMail").addClass('addBorderSucc');
+             }
+
+             else{
+                $("#mailErr").show();
+                $("#formMail").addClass("addBorderErr");
+             }
+
+            }
+
+        });
+
+    }
 
 
 </script>
@@ -85,18 +116,17 @@ $(document).ready(function(){
     <fieldset><legend>Registrirajte se <small>(brezplačno)</small></legend>
 
 
-        <input id="formName" class="addBorder textBox" name="ime" type="text" placeholder="Ime"  "/>
+        <input id="formName" name="ime" type="text" placeholder="Ime"  "/>
         <input id="formSurname" name="surname" type="text" placeholder="Priimek"  />
-        <input id="formMail" name="mail" type="email" placeholder="Email"  />
-        <i class="fa fa-times error"></i>
-        <i class="fa fa-check success"></i><!-- Preveri v bazi jče je mail še dosegljiv. Če ni se pojavi križec. -->
+        <input id="formMail" name="mail" type="email" placeholder="Email" onchange="AvalibleMail()" />
+        <i id="mailErr" class="fa fa-times error"></i>
+        <i id="mailSucc" class="fa fa-check success"></i><!-- Preveri v bazi jče je mail še dosegljiv. Če ni se pojavi križec. -->
         <input id="pass" name="pass" type="password" placeholder="Geslo" />
-        <i class="fa fa-check success"></i>
+        <i id="passSucc" class="fa fa-check success"></i>
         <input id="passCheck" name="passCheck" type="password" placeholder="Ponovite geslo" />
-        <i class="fa fa-times error"></i>
-        <i class="fa fa-check success" ></i>
-       <div id="check" style="display: none;"><i class="fa fa-check" style="color: #219917;"></i> &nbsp;Gesli se ujemata.</div>
-        <div id="nomatch" style="display: none;"><i class="fa fa-times" style="color: #d62911;"></i> &nbsp;Gesli se ne ujemata.</div>
+        <i id="passCErr" class="fa fa-times error"></i>
+        <i id="passCSucc" class="fa fa-check success" ></i>
+
         <br/>
 
         <input id="btnReg" name="button" type="button" value="Registriraj" /> &nbsp; <!--<small style="color: #ff9f23; ">Registracija je brezplačna</small>-->
@@ -127,11 +157,12 @@ $(document).ready(function(){
 
                     if(data=="Success"){
 
+                        $(".forma-registracije").hide().delay(2000);
                         window.location.href="index.php";
 
                     }
                     else{
-                        alert("error");
+                        alert("Napaka z bazo. Se opravičujemo");
 
                     }
                 }
