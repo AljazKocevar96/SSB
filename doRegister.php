@@ -21,10 +21,11 @@ if(!empty($ime) && !empty($surname) && !empty($mail) && !empty($pass) && !empty(
         $passHash= password_hash($pass, PASSWORD_DEFAULT);
 
 
-            $query= $db->prepare("INSERT INTO uporabniki (ime, priimek, pass, slika, reg_date) VALUES(:ime, :priimek, :pass, :slika, :dat)");
+            $query= $db->prepare("INSERT INTO uporabniki (ime, priimek, pass, mail, slika, reg_date) VALUES(:ime, :priimek, :pass, :mail, :slika, :dat)");
             $query-> bindParam(":ime",$ime);
             $query-> bindParam(":priimek",$surname);
             $query-> bindParam(":pass",$passHash);
+            $query-> bindParam(":mail",$mail);
             $query-> bindParam(":slika",$slika);
             $query-> bindParam(":dat", $date);
             $query->execute();

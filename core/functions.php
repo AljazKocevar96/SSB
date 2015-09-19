@@ -1,7 +1,14 @@
 <?php
+class Db {
 
-function errorHandle(Exception $e){
-echo "Server Error: ".$e->getCode()." Fix it! ";
+   public function ArrayBinder(&$query, &$array){
+        foreach($array as $k=>$v){
+            $query->bindValue(':'.$k,$v);
+        }
+    }
+
+   public function errorHandle(Exception $e){
+    echo "Server Error: ".$e->getCode()." Fix it! ";
     $trace= $e->getTrace();
     if($trace[0]['class']!=""){
         $class=$trace[0]['class'];
@@ -13,10 +20,7 @@ echo "Server Error: ".$e->getCode()." Fix it! ";
 
     $ExceptionOutput= $e->getMessage()." | Class in Metoda: ".$class."->".$method." | File: ".$file." | Line: ".$line;
     echo $ExceptionOutput;
-
 }
 
+}
 ?>
-
-
-
