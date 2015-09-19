@@ -1,7 +1,22 @@
 <?php
 class Db {
 
-   public function ArrayBinder(&$query, &$array){
+    public static $connection;
+    public static $config = array(
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
+        PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
+        PDO::ATTR_EMULATE_PREPARES => false,
+    );
+
+    public static function connect($db_host,$db_name,$username,$password){
+
+        if(!isset(self::$connection)){
+
+            self::$connection = new PDO('mysql:host='.$db_host.';dbname='.$db_name, $username, $password, self::$config);
+        }
+    }
+
+   public static function ArrayBinder(&$query, &$array){
         foreach($array as $k=>$v){
             $query->bindValue(':'.$k,$v);
         }

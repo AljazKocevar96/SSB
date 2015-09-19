@@ -8,7 +8,7 @@ $mail= safeString($_POST["mail"]);
 $myClass = new Db();
 
 
-$query=$db->prepare("SELECT mail FROM uporabniki WHERE mail=:mail");
+$query=Db::$connection->prepare("SELECT mail FROM uporabniki WHERE mail=:mail");
 $arr= array('mail'=>$mail);
 
 $myClass->ArrayBinder($query,$arr);

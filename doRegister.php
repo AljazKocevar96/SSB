@@ -16,29 +16,32 @@ $admin=0;
 if(!empty($ime) && !empty($surname) && !empty($mail) && !empty($pass) && !empty($passCheck)){
 
     if($pass == $passCheck){
-
-
         $passHash= password_hash($pass, PASSWORD_DEFAULT);
 
+        $arr=array(
+            'ime'=>$ime,
+            'priimek'=>$surname,
+            'pass'=>$passHash,
+            'mail'=>$mail,
+            'slika'=>$slika,
+            'dat'=>$date
+        );
 
-            $query= $db->prepare("INSERT INTO uporabniki (ime, priimek, pass, mail, slika, reg_date) VALUES(:ime, :priimek, :pass, :mail, :slika, :dat)");
-            $query-> bindParam(":ime",$ime);
-            $query-> bindParam(":priimek",$surname);
-            $query-> bindParam(":pass",$passHash);
-            $query-> bindParam(":mail",$mail);
-            $query-> bindParam(":slika",$slika);
-            $query-> bindParam(":dat", $date);
+            $query= Db::$connection->prepare("INSERT INTO uporabniki (ime, priimek, pass, mail, slika, reg_date) VALUES(:ime, :priimek, :pass, :mail, :slika, :dat)");
+            Db::ArrayBinder($query,$arr);
             $query->execute();
             echo "Success";
 
 
     }
     else{
-        echo "Fail";
+        echo "PassNoMatch";
     }
 
 }
-
+else{
+    echo "Fail";
+}
 
 
 

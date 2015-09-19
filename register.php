@@ -114,6 +114,8 @@ $(document).ready(function(){
    $("#passCheck").keyup(function(){
 
       if($("#pass").val() == $("#passCheck").val()){
+          $("#passCErr").hide();
+          $("#passCheck").removeClass("addBorderErr");
           $("#passCSucc").show();
           $("#pass").addClass("addBorderSucc");
           $("#passCheck").addClass("addBorderSucc");
@@ -146,8 +148,8 @@ $(document).ready(function(){
         if (mail.length >0) {
 
             if (emailChecking(mail)) {
-                $("formMail").removeClass("addBorderSucc");
-                $("formMail").removeClass("addBorderErr");
+                $("#formMail").removeClass("addBorderSucc");
+                $("#formMail").removeClass("addBorderErr");
 
                 $.ajax({
                     type: "POST",
@@ -206,7 +208,7 @@ $(document).ready(function(){
         <i id="mailSucc" class="fa fa-check success"></i><!-- Preveri v bazi jče je mail še dosegljiv. Če ni se pojavi križec. -->
         <input id="pass" name="pass" type="password" placeholder="Geslo" />
         <i id="passSucc" class="fa fa-check success"></i>
-        <input id="passCheck" name="passCheck" type="password" placeholder="Ponovite geslo" />
+        <input id="passCheck" name="passCheck" type="password" placeholder="Ponovite geslo" onchange="MatchPass()"/>
         <i id="passCErr" class="fa fa-times error"></i>
         <i id="passCSucc" class="fa fa-check success" ></i>
 
