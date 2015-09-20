@@ -120,7 +120,7 @@
                 <div class="main-header-right right adjust-right">
                     <nav class="megamenu_container">
                         <ul id="nav" class="right megamenu">
-                            <li class="nav-parent"><a href="#">Domov</a>
+                            <li class="nav-parent"><a href="index.php">Domov</a>
 
                             </li>
                             <li class="nav-parent">

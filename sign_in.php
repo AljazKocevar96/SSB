@@ -20,7 +20,7 @@ include_once "header.php";
 
 
     <div class="forma-registracije">
-        <form method="post" action="log_in_do.php" >
+        <form method="post" action="loginCheck.php" >
             <fieldset><legend>Prijavite se</legend>
 
              <div class="space" style="margin-top: 1em;">
@@ -35,6 +35,9 @@ include_once "header.php";
             </fieldset>
         </form>
     </div>
+
+
+
 
 
 <?php

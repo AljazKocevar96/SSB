@@ -16,6 +16,21 @@ class Db {
         }
     }
 
+    public static function querySelect($query){
+
+
+
+    }
+
+    public static function execute($query, array $array){
+
+        $stmt= self::$connection->prepare($query);
+        self::ArrayBinder($stmt,$array);
+        $stmt->execute();
+        return $stmt;
+
+    }
+
    public static function ArrayBinder(&$query, &$array){
         foreach($array as $k=>$v){
             $query->bindValue(':'.$k,$v);

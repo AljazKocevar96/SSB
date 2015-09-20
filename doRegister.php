@@ -27,9 +27,12 @@ if(!empty($ime) && !empty($surname) && !empty($mail) && !empty($pass) && !empty(
             'dat'=>$date
         );
 
-            $query= Db::$connection->prepare("INSERT INTO uporabniki (ime, priimek, pass, mail, slika, reg_date) VALUES(:ime, :priimek, :pass, :mail, :slika, :dat)");
-            Db::ArrayBinder($query,$arr);
-            $query->execute();
+
+            $query="INSERT INTO uporabniki (ime, priimek, pass, mail, slika, reg_date) VALUES(:ime, :priimek, :pass, :mail, :slika, :dat)";
+            Db::execute($query,$arr);
+
+          /*   Db::ArrayBinder($query,$arr);
+            $query->execute();*/
             echo "Success";
 
 

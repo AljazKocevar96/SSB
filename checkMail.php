@@ -5,13 +5,11 @@ include_once "core/functions.php";
 include_once "session.php";
 
 $mail= safeString($_POST["mail"]);
-$myClass = new Db();
-
 
 $query=Db::$connection->prepare("SELECT mail FROM uporabniki WHERE mail=:mail");
 $arr= array('mail'=>$mail);
 
-$myClass->ArrayBinder($query,$arr);
+Db::ArrayBinder($query,$arr);
 $query->execute();
 
 
