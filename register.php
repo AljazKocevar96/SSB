@@ -53,7 +53,6 @@ if(!empty($_SESSION['user_id'])){
             background-color: #FBCDCD!important;
 
         }
-
         .bubble
         {
             position: relative;

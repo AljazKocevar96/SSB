@@ -1,3 +1,7 @@
+<?php
+include_once "session.php";
+?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -75,10 +79,20 @@
             </ul>
         </div>
 
+
+
         <div class="pre-header-right right">
             <a class="fa" title="Facebook" href="https://www.facebook.com/groups/499525183557082/"> &#xf09a; <strong> Poiščite nas na Facebooku </strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <?php if(!empty($_SESSION['user_id'])){ ?>
+            <i class="fa fa-users"></i> <strong> <?php echo $_SESSION['user_name']." ".$_SESSION['user_surename'] ?> </strong>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="logout.php" title="odjava"> <i class="fa fa-power-off"></i> <strong> Odjava</strong> </a>
+            <?php }
+
+            else { ?>
             <a href="register.php" class="fa" title="registracija"> <i class="fa fa-users"></i> <strong> Včlani se</strong> </a>&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="sign_in.php" class="fa" title="prijava"> <i class="fa fa-user"></i> <strong> Prijavi se</strong> </a>
+            <?php } ?>
 
 
         </div>

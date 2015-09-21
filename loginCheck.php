@@ -21,16 +21,16 @@ if($resultRows == 1){
     $_SESSION['user_surename']=$resultQuery['priimek'];
     $_SESSION['picture']=$resultQuery['slika'];
     $_SESSION['admin']=$resultQuery['admin'];
-        echo "Access_approved";
+        echo "Prijava uspešna";
     }
 
     else{
-        echo "Password_denied";
+        echo "Geslo zavrnjeno";
     }
 }
 
 else{
-    echo "User_doesnt_exsist";
+    echo "Mail ne obstaja";
 }
 
 
