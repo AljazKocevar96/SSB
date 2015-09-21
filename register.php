@@ -7,10 +7,7 @@ if(!empty($_SESSION['user_id'])){
 
     header("Location: index.php");
 }
-
-
 ?>
-
     <style>
         .forma-registracije{
 
@@ -18,7 +15,6 @@ if(!empty($_SESSION['user_id'])){
             position: relative;
             width: 30em;
         }
-
         .error{
 
             float: right;
@@ -29,7 +25,6 @@ if(!empty($_SESSION['user_id'])){
             color: #d62911;
             display: none;
         }
-
         .success{
             float: right;
             margin-right: 10px;
@@ -47,7 +42,6 @@ if(!empty($_SESSION['user_id'])){
             z-index: 2;
             display: none;
         }
-
         .addBorderSucc {
             border: 2px solid;
             border-color: #219917!important;
@@ -71,7 +65,6 @@ if(!empty($_SESSION['user_id'])){
             -moz-border-radius: 0px;
             border-radius: 0px;
         }
-
         .bubble p{
             position: absolute;
             color: white;
@@ -79,7 +72,6 @@ if(!empty($_SESSION['user_id'])){
             margin-top: 2%;
             font-family: robotomedium;
         }
-
         .pointer{
             position: absolute;
             border-style: solid;
@@ -91,15 +83,7 @@ if(!empty($_SESSION['user_id'])){
             left: -11px;
             top: 0.5em;
         }
-
-
-
-
-
-
-
     </style>
-
 <script>
 
     function emailChecking(email){
@@ -246,19 +230,14 @@ $(document).ready(function(){
 
                     }
                     else{
-                        alert("Napaka z bazo. Se opravičujemo");
+                        $("#btnReg").val("Registriraj");
 
                     }
                 }
-
             });
-
         }
-
-
     });
 </script>
-
 
 <?php
 include_once "footer.php";

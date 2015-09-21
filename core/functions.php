@@ -16,12 +16,19 @@ class Db {
         }
     }
 
-    public static function querySelect($query){
-
-
-
+    public static function getRows($query, array $array){
+        $stmt=self::execute($query,$array);
+        $row= $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row;
     }
 
+    public static function countRows($query, array $array){
+
+        $stmt = self::execute($query, $array);
+        $stmt->execute();
+        $count= $stmt->rowCount();
+        return $count;
+    }
     public static function execute($query, array $array){
 
         $stmt= self::$connection->prepare($query);
@@ -37,7 +44,7 @@ class Db {
         }
     }
 
-   public function errorHandle(Exception $e){
+   public static function errorHandle(Exception $e){
     echo "Server Error: ".$e->getCode()." Fix it! ";
     $trace= $e->getTrace();
     if($trace[0]['class']!=""){
