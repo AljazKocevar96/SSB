@@ -10,13 +10,11 @@ if(!empty($_SESSION['user_id'])){
 ?>
     <style>
         .forma-registracije{
-
             margin: 6% auto 6% auto;
             position: relative;
             width: 30em;
         }
         .error{
-
             float: right;
             margin-right: 10px;
             margin-top: -46px;
