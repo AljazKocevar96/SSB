@@ -1,12 +1,22 @@
 <?php
 include_once "header.php";
-include_once "session.php";
-?>
-<style>
-    #introduction{
 
-    }
-</style>
+if(!isset($_SESSION['user_id'])&& empty($_SESSION['user_id'])){
+    $rdrStr=explode('/',$_SERVER['REQUEST_URI']);
+    $_SESSION['rdrString']= $rdrStr[2];
+}
+if(!empty($_SESSION['user_id']) && isset($_SESSION['user_id'])){
+
+    unset($_SESSION['rdrString']);
+}
+
+?>
+<script>
+    $(document).ready(function(){
+        window.redirection='<?php echo $_SESSION['rdrString'];?>';
+
+    });
+</script>
 
 <!-- Start Outter Wrapper -->
 <div id="introduction">
@@ -37,7 +47,7 @@ include_once "session.php";
             </div>
 
             <h3>Prijava in pravila </h3>
-            <p>Prijave potekajo na tej strani do [datuma]. Some text...</p>
+            <p>Tukaj potekajo prijave na 3v3 turnir, kjer se ekipe določajo z žrebom, ki se odločil na dan turnirja. Prijavite se lahko do [datuma]. Some text...</p>
 
             <p>Pravila igre...</p>
 
@@ -45,7 +55,7 @@ include_once "session.php";
 
 
             <ul class="inline-list clearfix evt-paging">
-                <li class="right"><a href="#" class="btn-3 small-btn">Nadaljuj na prijavo <em class="fa fa-angle-right"></em></a></li>
+                <li class="right"><span id="btn" class="btn-3 small-btn">Nadaljuj na prijavo <em class="fa fa-angle-right"></em></span></li>
             </ul>
 
             <!-- Finish Main Content -->
@@ -57,7 +67,21 @@ include_once "session.php";
 </div>
 
 <script>
+    $(document).ready(function(){
+        $("#btn").click(function(){
 
+            if(typeof redirection === 'undefined') {
+
+                $("#introduction").addClass('animated bounceOutLeft');
+                setTimeout(function () {
+                    $("#introduction").hide();
+                }, 1000);
+            }
+            else{
+                window.location.href= "sign_in.php";
+            }
+    });
+    });
 </script>
 
 <?php

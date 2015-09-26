@@ -2,12 +2,34 @@
 include_once "header.php";
 ?>
 
+<script>
+    $(document).ready(function(){
+
+        window.redirection = '<?php echo $_SESSION['rdrString'];?>';
+        if(typeof redirection !== 'undefined'){
+
+            $("#notificationCenter").show();
+            setTimeout(function(){
+                $("#notificationCenter").addClass('animated bounceOutLeft');
+            },2000);
+        }
+    });
+
+</script>
+
     <style >
         .forma-registracije{
 
             margin: 8% auto 8% auto;
             position: relative;
             width: 30em;
+        }
+        #notificationCenter{
+            margin: 5% auto -6% auto;
+            position: relative;
+            width: 30em;
+            display: none;
+
         }
         .bubble
         {
@@ -61,6 +83,8 @@ include_once "header.php";
             display: none;
         }
     </style>
+
+    <div id="notificationCenter" class="message notice"><i class="fa fa-warning"></i>&nbsp; Za ogled te strani morate biti prijavljeni. </div>
     <div class="forma-registracije">
         <div id="hideOnLogIn">
         <form method="post" action="loginCheck.php" >
@@ -81,8 +105,10 @@ include_once "header.php";
         </form>
         </div>
     </div>
+
 <script>
 $(document).ready(function(){
+
    $("#btnSubmit").click(function(){
       var mail=$("#mail").val();
        var pass=$("#pass").val();
@@ -96,7 +122,15 @@ $(document).ready(function(){
            success:function(data){
 
                if(data === "Prijava uspešna"){
+
+                   if(typeof redirection !== 'undefined'){
+
+                       window.location.href=redirection;
+
+                   }
+                   else{
                    window.location.href="index.php";
+                   }
                }
                else{
                    if(data === "Mail ne obstaja"){

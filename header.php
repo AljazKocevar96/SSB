@@ -140,7 +140,7 @@ include_once "session.php";
                             <li class="nav-parent">
                                 <a href="#">Turnirji</a>
                                 <ul>
-                                    <li><a href="3v3signup.php">3v3 žreb &nbsp; </a></li>
+                                    <li><a href="3v3randSignup.php">3v3 žreb &nbsp; </a></li>
 
                                     <li><a href="galleries.html">3v3 ekipe &nbsp;</a></li>
                                     <li><a href="team.html">1v1 &nbsp;</a></li>
