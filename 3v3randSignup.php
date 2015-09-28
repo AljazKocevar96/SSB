@@ -11,12 +11,30 @@ if(!empty($_SESSION['user_id']) && isset($_SESSION['user_id'])){
 }
 
 ?>
-<script>
+<script xmlns="http://www.w3.org/1999/html">
     $(document).ready(function(){
         window.redirection='<?php echo $_SESSION['rdrString'];?>';
 
     });
 </script>
+
+<style>
+    #form3v3rand{
+        display: none;
+        margin: 8% auto 8% auto;
+        position: relative;
+        width: 30em;
+    }
+    #soglasje{
+        margin-top: 0.5em;
+        margin-left: 0.5em;
+    }
+    .disabled{
+        cursor: not-allowed!important;
+        background-color: #bfbfbf!important;
+    }
+
+</style>
 
 <!-- Start Outter Wrapper -->
 <div id="introduction">
@@ -65,6 +83,23 @@ if(!empty($_SESSION['user_id']) && isset($_SESSION['user_id'])){
     </div>
 </div>
 </div>
+<div id="prijava">
+    <div id="form3v3rand">
+        <div id="hideOnLogIn">
+            <form method="post" action="loginCheck.php" >
+                <fieldset><legend>Prijavite se na turnir v mešanih trojkah</legend>
+
+                    <div class="space" style="margin-top: 1em;">
+                       <input type="text" name="ime" value="<?php echo $_SESSION['user_name']." ".$_SESSION['user_surename'];?>" placeholder="<?php echo $_SESSION['user_name']." ".$_SESSION['user_surename'];?>"/>
+                        <span id="soglasje">Želim se prijavti na turnir:</span>&nbsp;<input id="soglasje"  name="soglasjeCheck" type="checkbox" />
+                    </div>
+                    <input id="btnSubmit" name="button" class="disabled" type="button" value="Prijavi" /> &nbsp; <!--<small style="color: #ff9f23; ">Registracija je brezplačna</small>-->
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+</div>
 
 <script>
     $(document).ready(function(){
@@ -75,13 +110,22 @@ if(!empty($_SESSION['user_id']) && isset($_SESSION['user_id'])){
                 $("#introduction").addClass('animated bounceOutLeft');
                 setTimeout(function () {
                     $("#introduction").hide();
+                    $("#form3v3rand").show();
                 }, 1000);
             }
             else{
                 window.location.href= "sign_in.php";
             }
     });
+        setInterval(function(){
+            if($("input[name='soglasjeCheck']:checked").length>0){
+                $("#btnSubmit").removeClass('disabled');
+            }
+            else{ $("#btnSubmit").addClass('disabled');}
+        },1);
     });
+
+
 </script>
 
 <?php

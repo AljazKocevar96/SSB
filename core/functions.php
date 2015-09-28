@@ -29,6 +29,7 @@ class Db {
         $count= $stmt->rowCount();
         return $count;
     }
+
     public static function execute($query, array $array){
 
         $stmt= self::$connection->prepare($query);

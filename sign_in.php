@@ -29,7 +29,6 @@ include_once "header.php";
             position: relative;
             width: 30em;
             display: none;
-
         }
         .bubble
         {
@@ -145,8 +144,6 @@ $(document).ready(function(){
                        $("#wrongPass").fadeOut(1000);
                    }
                    $("#btnSubmit").val("Prijavi");
-
-
                }
            }
 
