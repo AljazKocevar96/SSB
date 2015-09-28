@@ -73,7 +73,7 @@ include_once "session.php";
         <div class="pre-header-left left">
             <!-- Second Nav -->
             <ul>
-                <li><a href="index.html"><strong>Ime Dogodka</strong></a></li>
+                <li><a href="dogodek.php"><strong>Ime Dogodka</strong></a></li>
                 <strong>Začetek:</strong> <div class="countdown styled"></div>
 
             </ul>
@@ -125,7 +125,7 @@ include_once "session.php";
 
 
                 <div class="main-header-left left adjust-left">
-                    <a class="logo" href="index.html">
+                    <a class="logo" href="index.php">
                         <img src="img/logo-white.png" alt="Scene" />
                     </a>
                 </div>

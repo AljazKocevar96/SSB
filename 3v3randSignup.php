@@ -33,7 +33,28 @@ if(!empty($_SESSION['user_id']) && isset($_SESSION['user_id'])){
         cursor: not-allowed!important;
         background-color: #bfbfbf!important;
     }
+    #btn:hover{
+        cursor: pointer;
+    }
+    #notificationCenterTY{
+        margin: 5% auto -2% auto;
+        position: relative;
+        width: 30em;
+        display: none;
+    }
 
+    #notificationCenterErr{
+        margin: 5% auto -2% auto;
+        position: relative;
+        width: 30em;
+        display: none;
+    }
+    #notificationCenterInfo{
+        margin: 5% auto -2% auto;
+        position: relative;
+        width: 30em;
+        display: none;
+    }
 </style>
 
 <!-- Start Outter Wrapper -->
@@ -85,12 +106,16 @@ if(!empty($_SESSION['user_id']) && isset($_SESSION['user_id'])){
 </div>
 <div id="prijava">
     <div id="form3v3rand">
+        <div id="notificationCenterTY" class="message success"><i class="fa fa-check"></i>&nbsp; Hvala ! </div>
+        <div id="notificationCenterErr" class="message notice"><i class="fa fa-exclamation-triangle"></i>&nbsp; Ups. Težave imamo s povezavo !  </div>
+        <div id="notificationCenterInfo" class="message info"><i class="fa fa-info"></i>&nbsp; Na ta dogodek ste se že registrirali.  </div>
         <div id="hideOnLogIn">
             <form method="post" action="loginCheck.php" >
                 <fieldset><legend>Prijavite se na turnir v mešanih trojkah</legend>
 
                     <div class="space" style="margin-top: 1em;">
-                       <input type="text" name="ime" value="<?php echo $_SESSION['user_name']." ".$_SESSION['user_surename'];?>" placeholder="<?php echo $_SESSION['user_name']." ".$_SESSION['user_surename'];?>"/>
+                       <input id="registername" type="text" name="ime" value="<?php echo $_SESSION['user_name'];?>" placeholder="<?php echo $_SESSION['user_name'];?>"/>
+                        <input id="registersurename" type="text" name="priimek" value="<?php echo $_SESSION['user_surename'];?>" placeholder="<?php echo $_SESSION['user_surename'];?>"/>
                         <span id="soglasje">Želim se prijavti na turnir:</span>&nbsp;<input id="soglasje"  name="soglasjeCheck" type="checkbox" />
                     </div>
                     <input id="btnSubmit" name="button" class="disabled" type="button" value="Prijavi" /> &nbsp; <!--<small style="color: #ff9f23; ">Registracija je brezplačna</small>-->
@@ -123,6 +148,47 @@ if(!empty($_SESSION['user_id']) && isset($_SESSION['user_id'])){
             }
             else{ $("#btnSubmit").addClass('disabled');}
         },1);
+
+        $("#btnSubmit").click(function(){
+            var ime= $("#registername").val();
+            var priimek= $("#registersurename").val();
+
+            $.ajax({
+                type:"POST",
+                url:"register3v3rand.php",
+                data:{ime:ime,priimek:priimek},
+                success:function(data){
+
+                    if(data=="RegisteredAlready"){
+
+                        $("#notificationCenterInfo").show();
+                        setTimeout(function(){
+                            $("#notificationCenterInfo").addClass('animated bounceOutLeft');
+                        },2000);
+
+                    }
+                    else {
+                        if (data === "Success") {
+
+                            $("#notificationCenterTY").show();
+                            setTimeout(function () {
+                                $("#notificationCenterTY").addClass('animated bounceOutLeft');
+                                window.location.href = "3v3randSignup.php";
+                            }, 2000);
+
+                        }
+                        else {
+                            $("#notificationCenterErr").show();
+                            setTimeout(function () {
+                                $("#notificationCenterErr").addClass('animated bounceOutLeft');
+                            }, 2000);
+
+                        }
+                    }
+                }
+            }) ;
+
+        });
     });
 
 
