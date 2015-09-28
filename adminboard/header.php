@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+session_start();
+?>
 <html lang="en">
 
 <head>
@@ -33,6 +36,14 @@
 </head>
 
 <body>
+
+<?php
+if($_SESSION['admin']!= 1 || empty($_SESSION['admin'])){
+
+    header("Location: ../index.php");
+
+}
+?>
 
 <div id="wrapper">
 
@@ -141,6 +152,9 @@
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-fw fa-gear"></i> Dodelitve vlog</a>
+                    </li>
+                    <li>
+                        <a href="../index.php"><i class="fa fa-fw fa-file"></i> Glavna stran</a>
                     </li>
                     <li class="divider"></li>
                     <li>

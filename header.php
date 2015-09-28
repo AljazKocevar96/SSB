@@ -82,16 +82,27 @@ include_once "session.php";
 
 
         <div class="pre-header-right right">
-            <a class="fa" title="Facebook" href="https://www.facebook.com/groups/499525183557082/"> &#xf09a; <strong> Poiščite nas na Facebooku </strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
 
-            <?php if(!empty($_SESSION['user_id'])){ ?>
-            <i class="fa fa-users"></i> <strong> <?php echo $_SESSION['user_name']." ".$_SESSION['user_surename'] ?> </strong>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="logout.php" title="odjava"> <i class="fa fa-power-off"></i> <strong> Odjava</strong> </a>
+
+            <?php if(!empty($_SESSION['user_id'])){
+                if($_SESSION['admin']==1){ ?>
+                    <i class="fa fa-user"></i> <strong> <?php echo $_SESSION['user_name']." ".$_SESSION['user_surename']." "."(Administrator)" ?> </strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="logout.php" title="odjava"> <i class="fa fa-power-off"></i> <strong> Odjava</strong> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="./adminboard/index.php" title="Odjava"> <i class="fa fa-gear"></i> <strong> Nadzorna plošča</strong> </a>
+                    <?php }
+
+                    else { ?>
+                        <a  title="Facebook" href="https://www.facebook.com/groups/499525183557082/"> &#xf09a; <strong> Poiščite nas na Facebooku </strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <i class="fa fa-user"></i> <strong> <?php echo $_SESSION['user_name']." ".$_SESSION['user_surename'] ?> </strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="logout.php" title="Odjava"> <i class="fa fa-power-off"></i> <strong> Odjava</strong> </a>
+
+                    <?php } ?>
             <?php }
 
             else { ?>
-            <a href="register.php" class="fa" title="registracija"> <i class="fa fa-users"></i> <strong> Včlani se</strong> </a>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="sign_in.php" class="fa" title="prijava"> <i class="fa fa-user"></i> <strong> Prijavi se</strong> </a>
+            <a class="fa" title="Facebook" href="https://www.facebook.com/groups/499525183557082/"> &#xf09a; <strong> Poiščite nas na Facebooku </strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="register.php" title="registracija"> <i class="fa fa-user"></i> <strong> Včlani se</strong> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="sign_in.php"  title="prijava"> <i class="fa fa-sign-in"></i> <strong> Prijavi se</strong> </a>
             <?php } ?>
 
 
@@ -142,9 +153,9 @@ include_once "session.php";
                                 <ul>
                                     <li><a href="3v3randSignup.php">3v3 žreb &nbsp; </a></li>
 
-                                    <li><a href="galleries.html">3v3 ekipe &nbsp;</a></li>
-                                    <li><a href="team.html">1v1 &nbsp;</a></li>
-                                    <li><a href="member.html">Meti iz za črte &nbsp;</a></li>
+                                    <li><a href="#">3v3 ekipe &nbsp;</a></li>
+                                    <li><a href="#">1v1 &nbsp;</a></li>
+                                    <li><a href="#">Meti iz za črte &nbsp;</a></li>
 
 
                                 </ul>
@@ -157,17 +168,17 @@ include_once "session.php";
                                     <div class="clearfix">
                                         <div class="col-2-3 clearfix">
                                             <h3 class="mega-title">Opis dogodka</h3>
-                                            <a class="col-1-2" href="post.html"><img src="img/fill-8.jpg" alt="Mock" /></a>
-                                            <h6 class="title"><a href="post.html">Simbolična slika</a></h6>
-                                            <p>Kratek opis zgodbe &#8230;<a href="post.html" class="read-more">Več o tem</a></p>
+                                            <a class="col-1-2" href="#"><img src="img/fill-8.jpg" alt="Mock" /></a>
+                                            <h6 class="title"><a href="#">Simbolična slika</a></h6>
+                                            <p>Kratek opis zgodbe &#8230;<a href="#" class="read-more">Več o tem</a></p>
                                         </div>
 
                                         <div class="col-1-3 last">
                                             <h3 class="mega-title">Dogodki</h3>
                                             <ul class="list-2 widget-list">
-                                                <li><a href="index.html">Nazarje, november</a></li>
-                                                <li><a href="event-calender.html">Mozirje, december</a></li>
-                                                <li><a href="team.html">Gornji Grad, januar</a></li>
+                                                <li><a href="#">Nazarje, november</a></li>
+                                                <li><a href="#">Mozirje, december</a></li>
+                                                <li><a href="#">Gornji Grad, januar</a></li>
 
                                             </ul>
                                         </div>
@@ -181,17 +192,17 @@ include_once "session.php";
                             <li class="nav-parent">
                                 <a href="#">Lestvice</a>
                                 <ul>
-                                    <li><a href="about.html">3v3 žreb &nbsp; </a></li>
+                                    <li><a href="#">3v3 žreb &nbsp; </a></li>
 
-                                    <li><a href="galleries.html">3v3 ekipe &nbsp;</a></li>
-                                    <li><a href="team.html">1v1 &nbsp;</a></li>
-                                    <li><a href="member.html">Meti iz za črte &nbsp;</a></li>
+                                    <li><a href="#">3v3 ekipe &nbsp;</a></li>
+                                    <li><a href="#">1v1 &nbsp;</a></li>
+                                    <li><a href="#">Meti iz za črte &nbsp;</a></li>
                                 </ul>
                             </li>
                             <li class="nav-parent">
                                 <a href="#">Blog</a>
                                 <ul>
-                                    <li><a href="blog-rsb.html">Opcije &nbsp;</a></li>
+                                    <li><a href="#">Opcije &nbsp;</a></li>
 
                                 </ul>
                             </li>
