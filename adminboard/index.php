@@ -12,11 +12,11 @@ include_once "./core/functions.php";
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        <i class="fa fa-dashboard"></i> Dashboard <small>Statistični pregled</small>
+                        <i class="fa fa-dashboard"></i> Nadzorna plošča <small>Statistični pregled</small>
                     </h1>
                     <ol class="breadcrumb">
                         <li class="active">
-                            <i class="fa fa-dashboard"></i> Dashboard
+                            <i class="fa fa-dashboard"></i> Nadzorna plošča
                         </li>
                     </ol>
                 </div>
@@ -36,13 +36,13 @@ $result=Db::executeNoParamsCountRow($query);
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge"><?php echo $result;  ?></div>
-                                    <div>Prijavljenih na <br> turnir</div>
+                                    <div>Prijavljenih na turnir 3v3 mešano </div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">Poglejte podrobnosti</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -58,13 +58,13 @@ $result=Db::executeNoParamsCountRow($query);
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">12</div>
-                                    <div>New Tasks!</div>
+                                    <div>Prijavljenih na turnir 3v3 ekipe</div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">Poglejte podrobnosti</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -80,13 +80,13 @@ $result=Db::executeNoParamsCountRow($query);
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">124</div>
-                                    <div>New Orders!</div>
+                                    <div>Prijavljenih na turnir metov iz za črte</div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">Poglej podrobnosti</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -102,13 +102,13 @@ $result=Db::executeNoParamsCountRow($query);
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">13</div>
-                                    <div>Support Tickets!</div>
+                                    <div>Prijavljenih na turnir 1v1 </div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">Poglej podrobnosti</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>

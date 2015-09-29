@@ -54,6 +54,20 @@ class Db {
 
     }
 
+    public static function executeNoParams($query){
+
+        $stmt=self::$connection->prepare($query);
+        $stmt->execute();
+        return $stmt;
+    }
+
+    public static function executeNoParamsRows($query){
+
+        $stmt = self::$connection->prepare($query);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
    public static function errorHandle(Exception $e){
     echo "Server Error: ".$e->getCode()." Fix it! ";
     $trace= $e->getTrace();

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-session_start();
+include_once "./core/session.php";
 ?>
 <html lang="en">
 
@@ -57,7 +57,7 @@ if($_SESSION['admin']!= 1 || empty($_SESSION['admin'])){
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">SB Admin</a>
+            <a class="navbar-brand" href="index.php">SB Admin</a>
         </div>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
@@ -142,7 +142,7 @@ if($_SESSION['admin']!= 1 || empty($_SESSION['admin'])){
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Administrator <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>&nbsp; <?php echo $_SESSION['user_name']." ".$_SESSION['user_surename'];  ?> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li>
                         <a href="#"><i class="fa fa-fw fa-user"></i> Profil</a>
@@ -167,7 +167,7 @@ if($_SESSION['admin']!= 1 || empty($_SESSION['admin'])){
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li class="active">
-                    <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Nadzorna plošča</a>
                 </li>
                 <li>
                     <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
