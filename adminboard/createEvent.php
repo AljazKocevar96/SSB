@@ -54,6 +54,14 @@ include_once "./core/session.php";
             </div>
             </div>
 
+            <div class="col-lg-7"about="" style="margin-top: 0.8em;">
+                <label>Opis dogodka</label>
+              <textarea name="editor1" id="editor1" placeholder="Opis dogodka "> </textarea>
+            </div>
+            <script>
+                CKEDITOR.replace( 'editor1' );
+            </script>
+
             <div class="col-lg-7">
             <div style="margin-top: 0.8em; margin-right: 1em; ">
             <button id="submit" type="button" class="btn btn-primary pull-right">Potrdi <i class="fa fa-chevron-right"></i> </button>
@@ -72,14 +80,17 @@ include_once "./core/session.php";
             var lokacija = $("#lokacija").val();
             var start_date = $("#openingDate").val();
             var end_date= $("#endDate").val();
+            var description= CKEDITOR.instances['editor1'].getData();
+
+
 
             if(ime.length!=0 && lokacija.length!=0 && start_date.length!=0 && end_date.length!=0){
             $.ajax({
                 type:"POST",
                 url:"writeEvent.php",
-                data:{ime:ime, lokacija:lokacija, start:start_date, end:end_date},
+                data:{ime:ime, lokacija:lokacija, start:start_date, end:end_date, opis:description},
                 success: function(data){
-                    alert(data);
+
 
                 }
 

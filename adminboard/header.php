@@ -185,17 +185,44 @@ $filename=explode("/",$_SERVER['REQUEST_URI']);
                 ?>
 
 
-                <?php if($filename[3]=="createEvent.php"){ ?>
+
+                <?php if($filename[3]=="createEvent.php" || $filename[3]=="event.php"){ ?>
                 <li class="active">
-                    <a href="createEvent.php"><i class="fa fa-fw fa-plus"></i> Dodaj dogodek</a>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#events"><i class="fa fa-fw fa-calendar-o"></i> Dogodki <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="events" class="collapse">
+
+                            <li class="active">
+                                <a href="createEvent.php"><i class="fa fa-fw fa-plus"></i> Dodaj dogodek</a>
+                            </li>
+
+                        <li class="active">
+                            <a href="event.php"><i class="fa fa-fw fa-calendar-o"></i> Pregled dogodek</a>
+                        </li>
+
+
+                    </ul>
                 </li>
                 <?php }
-                else{?>
-                    <li >
-                    <a id="test" href="createEvent.php"><i class="fa fa-fw fa-plus"></i> Dodaj dogodek</a>
-                </li>
-                <?php } ?>
 
+                else{?>
+
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#events"><i class="fa fa-fw fa-calendar-o"></i> Dogodki <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="events" class="collapse">
+
+                            <li class="active">
+                                <a href="createEvent.php"><i class="fa fa-fw fa-plus"></i> Dodaj dogodek</a>
+                            </li>
+
+                            <li class="active">
+                                <a href="event.php"><i class="fa fa-fw fa-calendar-o"></i> Pregled dogodek</a>
+                            </li>
+
+
+                        </ul>
+                    </li>
+
+                <?php } ?>
 
                 <li>
                     <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
