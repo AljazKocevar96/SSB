@@ -39,6 +39,13 @@ class Db {
 
     }
 
+    public static function executeNoParams($query){
+
+        $stmt=self::$connection->prepare($query);
+        $stmt->execute();
+        return $stmt;
+    }
+
     public static function ArrayBinder(&$query, &$array){
         foreach($array as $k=>$v){
             $query->bindValue(':'.$k,$v);
@@ -54,18 +61,10 @@ class Db {
 
     }
 
-    public static function executeNoParams($query){
+    public static function FetchRows($PDOobj){
 
-        $stmt=self::$connection->prepare($query);
-        $stmt->execute();
-        return $stmt;
-    }
-
-    public static function executeNoParamsRows($query){
-
-        $stmt = self::$connection->prepare($query);
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $result;
+        $row= $PDOobj->fetch(PDO::FETCH_ASSOC);//return tabele
+        return $row;
     }
 
     public static function errorHandle(Exception $e){

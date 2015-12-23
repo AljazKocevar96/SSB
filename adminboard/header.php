@@ -12,10 +12,12 @@ include_once "./core/session.php";
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title>SBS Administrator</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--Animate.css-->
+    <link rel="stylesheet" href="../animate.css-master/animate.min.css">
 
     <!-- Custom CSS -->
     <link href="css/sb-admin.css" rel="stylesheet">
@@ -32,6 +34,14 @@ include_once "./core/session.php";
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="ckeditor/ckeditor.js"></script>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="js/plugins/morris/raphael.min.js"></script>
+    <script src="js/plugins/morris/morris.min.js"></script>
+    <script src="js/plugins/morris/morris-data.js"></script>
 
 
 
@@ -148,7 +158,7 @@ $filename=explode("/",$_SERVER['REQUEST_URI']);
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>&nbsp; <?php echo $_SESSION['user_name']." ".$_SESSION['user_surename'];  ?> <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>&nbsp; <?php echo $_SESSION['user_name']." ".$_SESSION['user_surename']; ?> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li>
                         <a href="#"><i class="fa fa-fw fa-user"></i> Profil</a>
@@ -196,7 +206,7 @@ $filename=explode("/",$_SERVER['REQUEST_URI']);
                             </li>
 
                         <li class="active">
-                            <a href="event.php"><i class="fa fa-fw fa-calendar-o"></i> Pregled dogodek</a>
+                            <a href="event.php"><i class="fa fa-fw fa-calendar-o"></i> Pregled dogodkov</a>
                         </li>
 
 
@@ -215,7 +225,7 @@ $filename=explode("/",$_SERVER['REQUEST_URI']);
                             </li>
 
                             <li class="active">
-                                <a href="event.php"><i class="fa fa-fw fa-calendar-o"></i> Pregled dogodek</a>
+                                <a href="event.php"><i class="fa fa-fw fa-calendar-o"></i> Pregled dogodkov</a>
                             </li>
 
 

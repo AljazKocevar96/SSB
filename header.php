@@ -62,6 +62,8 @@ include_once "session.php";
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+
 </head>
 <body style="background-color: white; ">
 
@@ -92,7 +94,7 @@ include_once "session.php";
                     <?php }
 
                     else { ?>
-                        <a  title="Facebook" href="https://www.facebook.com/groups/499525183557082/"> &#xf09a; <strong> Poiščite nas na Facebooku </strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a  title="Facebook" href="https://www.facebook.com/groups/499525183557082/"> <i class="fa fa-facebook"></i> <strong> Poiščite nas na Facebooku </strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
                         <i class="fa fa-user"></i> <strong> <?php echo $_SESSION['user_name']." ".$_SESSION['user_surename'] ?> </strong>&nbsp;&nbsp;&nbsp;&nbsp;
                         <a href="logout.php" title="Odjava"> <i class="fa fa-power-off"></i> <strong> Odjava</strong> </a>
 
@@ -100,7 +102,7 @@ include_once "session.php";
             <?php }
 
             else { ?>
-            <a class="fa" title="Facebook" href="https://www.facebook.com/groups/499525183557082/"> &#xf09a; <strong> Poiščite nas na Facebooku </strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="fa" title="Facebook" href="https://www.facebook.com/groups/499525183557082/"> <i class="fa fa-facebook"></i> <strong> Poiščite nas na Facebooku </strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="register.php" title="registracija"> <i class="fa fa-user"></i> <strong> Včlani se</strong> </a>&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="sign_in.php"  title="prijava"> <i class="fa fa-sign-in"></i> <strong> Prijavi se</strong> </a>
             <?php } ?>

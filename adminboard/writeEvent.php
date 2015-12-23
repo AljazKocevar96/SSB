@@ -5,7 +5,7 @@ $ime=safeString($_POST['ime']);
 $lokacija=safeString($_POST['lokacija']);
 $start=safeString($_POST['start']);
 $end=safeString($_POST['end']);
-$opis=safeString($_POST['opis']);
+$opis=CKEditorSafety($_POST['opis']);
 
 $arr=array(
     "ime"=>$ime,
