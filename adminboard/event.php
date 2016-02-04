@@ -54,8 +54,8 @@ $result=Db::executeNoParams($query);
     }
 </style>
 
-<div id="page-wrapper" >
-<div class="row">
+<div id="page-wrapper" style="margin-left: 1%; position: relative;   ">
+<div class="row" >
     <div class="col-lg-12">
         <h3>Prihajajoči dogodki</h3>
     </div>
@@ -71,6 +71,7 @@ $result=Db::executeNoParams($query);
                     <th>Začetek</th>
                     <th>Konec</th>
                     <th>Status</th>
+
                 </tr>
                 </thead>
                 <?php while($resultRows=Db::FetchRows($result)){ ?>
@@ -93,6 +94,7 @@ $result=Db::executeNoParams($query);
                                 </div>
                             <?php } ?>
                     </td>
+
 
 
                 </tr>
@@ -126,7 +128,7 @@ function changeStatus(event){
         url:"updateEventStatus.php",
         data:{id:id, status:active},
         success: function(data){
-            alert(data);
+
 
         }
 

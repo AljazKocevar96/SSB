@@ -4,10 +4,9 @@ include_once "./core/session.php";
 ?>
 
 <style>
- h3{
+    h3{
      margin-left: 0.6em;
-
- }
+    }
     #form{
         margin-left: 1em;
     }
@@ -18,8 +17,8 @@ include_once "./core/session.php";
 
 </style>
 
-<div id="page-wrapper">
-    <div id="central">
+<div id="page-wrapper" >
+    <div id="container-fluid">
 <div class="row">
     <div class="col-lg-12">
         <h3>Dodajte nov dogodek</h3>
@@ -101,16 +100,10 @@ include_once "./core/session.php";
 
                     if(data=="Success"){
                         $("#dodaja-dogodka").addClass('animated zoomOutRight');
-
-
                     }
                     else if(data=="Fail"){
-
-
                     }
-
                 }
-
             });
             }
         });

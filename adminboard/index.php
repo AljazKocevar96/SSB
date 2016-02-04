@@ -32,7 +32,7 @@ $result=Db::executeNoParamsCountRow($query);
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-dribbble fa-5x"></i>
+                                    <i class="icon icon-ios-basketball fa-4x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge"><?php echo $result;  ?></div>
@@ -54,7 +54,7 @@ $result=Db::executeNoParamsCountRow($query);
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
+                                    <i class="fa fa-users fa-4x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">12</div>
@@ -76,7 +76,7 @@ $result=Db::executeNoParamsCountRow($query);
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-shopping-cart fa-5x"></i>
+                                    <i class="fa fa-child fa-4x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">124</div>
@@ -98,7 +98,7 @@ $result=Db::executeNoParamsCountRow($query);
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-support fa-5x"></i>
+                                    <i class="fa fa-trophy fa-4x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">13</div>

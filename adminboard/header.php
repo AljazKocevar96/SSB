@@ -15,12 +15,14 @@ include_once "./core/session.php";
     <title>SBS Administrator</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
     <!--Animate.css-->
     <link rel="stylesheet" href="../animate.css-master/animate.min.css">
 
     <!-- Custom CSS -->
     <link href="css/sb-admin.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="fonts/styles.css">
 
     <!-- Morris Charts CSS -->
     <link href="css/plugins/morris.css" rel="stylesheet">

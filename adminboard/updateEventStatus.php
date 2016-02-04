@@ -14,7 +14,7 @@ $arr= array(
 
 $result = Db::execute($query,$arr);
 
-echo $result;
+
 
 ?>
 
