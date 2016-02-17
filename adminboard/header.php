@@ -46,21 +46,19 @@ include_once "./core/session.php";
     <script src="js/plugins/morris/morris-data.js"></script>
 
 
-
 </head>
 
 <body>
 
 <?php
-if($_SESSION['admin']!= 1 || empty($_SESSION['admin'])){
+if ($_SESSION['admin'] != 1 || empty($_SESSION['admin'])) {
 
     header("Location: ../index.php");
 
 }
 
-$filename=explode("/",$_SERVER['REQUEST_URI']);
+$filename = explode("/", $_SERVER['REQUEST_URI']);
 ?>
-
 
 
 <div id="wrapper">
@@ -80,7 +78,8 @@ $filename=explode("/",$_SERVER['REQUEST_URI']);
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b
+                        class="caret"></b></a>
                 <ul class="dropdown-menu message-dropdown">
                     <li class="message-preview">
                         <a href="#">
@@ -133,7 +132,8 @@ $filename=explode("/",$_SERVER['REQUEST_URI']);
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b
+                        class="caret"></b></a>
                 <ul class="dropdown-menu alert-dropdown">
                     <li>
                         <a href="#">Opozorila <span class="label label-default">Opozorilo</span></a>
@@ -160,7 +160,9 @@ $filename=explode("/",$_SERVER['REQUEST_URI']);
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>&nbsp; <?php echo $_SESSION['user_name']." ".$_SESSION['user_surename']; ?> <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                        class="fa fa-user"></i>&nbsp; <?php echo $_SESSION['user_name'] . " " . $_SESSION['user_surename']; ?>
+                    <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li>
                         <a href="#"><i class="fa fa-fw fa-user"></i> Profil</a>
@@ -184,42 +186,42 @@ $filename=explode("/",$_SERVER['REQUEST_URI']);
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
-                <?php if($filename[3] == "index.php"){ ?>
-                <li class="active">
-                    <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Nadzorna plošča</a>
-                </li>
-                <?php }
-                else { ?>
+                <?php if ($filename[3] == "index.php") { ?>
+                    <li class="active">
+                        <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Nadzorna plošča</a>
+                    </li>
+                <?php } else { ?>
                     <li>
-                    <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Nadzorna plošča</a>
-                </li>
+                        <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Nadzorna plošča</a>
+                    </li>
                 <?php }
                 ?>
 
 
 
-                <?php if($filename[3]=="createEvent.php" || $filename[3]=="event.php"){ ?>
-                <li class="active">
-                    <a href="javascript:;" data-toggle="collapse" data-target="#events"><i class="fa fa-fw fa-calendar-o"></i> Dogodki <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="events" class="collapse">
+                <?php if ($filename[3] == "createEvent.php" || $filename[3] == "event.php") { ?>
+                    <li class="active">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#events"><i
+                                class="fa fa-fw fa-calendar-o"></i> Dogodki <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="events" class="collapse">
 
                             <li class="active">
                                 <a href="createEvent.php"><i class="fa fa-fw fa-plus"></i> Dodaj dogodek</a>
                             </li>
 
-                        <li class="active">
-                            <a href="event.php"><i class="fa fa-fw fa-calendar-o"></i> Pregled dogodkov</a>
-                        </li>
+                            <li class="active">
+                                <a href="event.php"><i class="fa fa-fw fa-calendar-o"></i> Pregled dogodkov</a>
+                            </li>
 
 
-                    </ul>
-                </li>
-                <?php }
-
-                else{?>
+                        </ul>
+                    </li>
+                <?php } else {
+                    ?>
 
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#events"><i class="fa fa-fw fa-calendar-o"></i> Dogodki <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#events"><i
+                                class="fa fa-fw fa-calendar-o"></i> Dogodki <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="events" class="collapse">
 
                             <li class="active">
@@ -237,7 +239,7 @@ $filename=explode("/",$_SERVER['REQUEST_URI']);
                 <?php } ?>
 
                 <li>
-                    <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
+                    <a href="tables.html"><i class="fa fa-fw fa-table"></i> Prijave na tekmovanja</a>
                 </li>
                 <li>
                     <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
@@ -249,7 +251,8 @@ $filename=explode("/",$_SERVER['REQUEST_URI']);
                     <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
                 </li>
                 <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i
+                            class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
                     <ul id="demo" class="collapse">
                         <li>
                             <a href="#">Dropdown Item</a>
