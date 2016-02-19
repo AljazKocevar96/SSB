@@ -239,7 +239,7 @@ $filename = explode("/", $_SERVER['REQUEST_URI']);
                 <?php } ?>
 
                 <li>
-                    <a href="tables.html"><i class="fa fa-fw fa-table"></i> Prijave na tekmovanja</a>
+                    <a href="prijavljeni.php"><i class="fa fa-fw fa-table"></i> Prijave na tekmovanja</a>
                 </li>
                 <li>
                     <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>

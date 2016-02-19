@@ -2,8 +2,7 @@
 include_once "header.php";
 include_once "core/session.php";
 
-$date = date("d") + 3 . date("m") + 1 . date("y");
-echo $date;
+
 ?>
 
 

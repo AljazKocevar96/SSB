@@ -154,8 +154,7 @@ include_once "session.php";
                                 <a href="#">Turnirji</a>
                                 <ul>
                                     <li><a href="3v3randSignup.php">3v3 žreb &nbsp; </a></li>
-
-                                    <li><a href="#">3v3 ekipe &nbsp;</a></li>
+                                    <li><a href="3v3teamregister.php">3v3 ekipe &nbsp;</a></li>
                                     <li><a href="#">1v1 &nbsp;</a></li>
                                     <li><a href="#">Meti iz za črte &nbsp;</a></li>
 
