@@ -113,6 +113,8 @@ $(document).ready(function(){
        var pass=$("#pass").val();
 
        if($.trim(mail).length>0 && $.trim(pass).length>0){
+
+
        $.ajax({
            type:"POST",
            url:"loginCheck.php",
@@ -168,6 +170,75 @@ $(document).ready(function(){
 
        }
    });
+
+    $("#pass").keyup(function(event){
+
+        if(event.keyCode==13){
+
+            var mail=$("#mail").val();
+            var pass=$("#pass").val();
+
+            if($.trim(mail).length>0 && $.trim(pass).length>0){
+
+                $.ajax({
+                    type:"POST",
+                    url:"loginCheck.php",
+                    data:{mail:mail, pass:pass},
+                    beforeSend:function(){$("#btnSubmit").val("Prijavljanje...");},
+                    success:function(data){
+
+                        if(data === "Prijava uspešna"){
+
+                            if(typeof redirection !== 'undefined'){
+
+                                window.location.href=redirection;
+
+                            }
+                            else{
+                                window.location.href="index.php";
+                            }
+                        }
+                        else{
+                            if(data === "Mail ne obstaja"){
+
+                                $("#wrongMail").show().delay(2000);
+                                $("#wrongMail").fadeOut(1000);
+                            }
+
+                            if(data ==="Geslo zavrnjeno"){
+
+                                $("#wrongPass").show().delay(2000);
+                                $("#wrongPass").fadeOut(1000);
+                            }
+                            $("#btnSubmit").val("Prijavi");
+                        }
+                    }
+
+                });
+            }
+            else{
+                if(mail.lenght === 0){
+                    $("#mail").addClass('addBorderErr');
+                    $("#mailErr").show();
+
+                }
+                if(pass.length === 0){
+                    $("#pass").addClass('addBorderErr');
+                    $("#passErr").show();
+                }
+                if(pass.length === 0 && mail.lenght === 0){
+                    $("#mail").addClass('addBorderErr');
+                    $("#pass").addClass('addBorderErr');
+                    $("#passErr").show();
+                    $("#mailErr").show();
+                }
+
+            }
+        }
+
+    });
+
+
 });
 
     function RemoveErrClassMail(){

@@ -23,7 +23,7 @@ if(!empty($_SESSION['user_id']) && isset($_SESSION['user_id'])){
         display: none;
     }
     #form3v3team{
-        
+
         margin: 2% 0 0 2%;
         position: relative;
         width: 30em;
