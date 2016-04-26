@@ -46,7 +46,7 @@ class Db {
         return $stmt;
     }
 
-    public static function ArrayBinder(&$query, &$array){
+    public static function ArrayBinder(&$query,  &$array){
         foreach($array as $k=>$v){
             $query->bindValue(':'.$k,$v);
         }

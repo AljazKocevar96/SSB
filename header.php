@@ -163,7 +163,7 @@ include_once "session.php";
                             </li>
 
 
-                            <li><a href="#" class="megamenu_drop">Rezultati <em class="fa">&#xf107;</em></a><!-- Begin Mega Item -->
+                            <li><a href="#" class="megamenu_drop">Dogodki <em class="fa">&#xf107;</em></a><!-- Begin Mega Item -->
                                 <div class="dropdown_fullwidth"><!-- Begin Item Container -->
 
                                     <div class="clearfix">

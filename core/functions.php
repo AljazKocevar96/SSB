@@ -39,7 +39,14 @@ class Db {
 
     }
 
-   public static function ArrayBinder(&$query, &$array){
+    public static function executeNoParams($query){
+
+        $stmt=self::$connection->prepare($query);
+        $stmt->execute();
+        return $stmt;
+    }
+
+    public static function ArrayBinder(&$query, &$array){
         foreach($array as $k=>$v){
             $query->bindValue(':'.$k,$v);
         }
@@ -54,34 +61,26 @@ class Db {
 
     }
 
-    public static function executeNoParams($query){
+    public static function FetchRows($PDOobj){
 
-        $stmt=self::$connection->prepare($query);
-        $stmt->execute();
-        return $stmt;
+        $row= $PDOobj->fetch(PDO::FETCH_ASSOC);//return tabele
+        return $row;
     }
 
-    public static function executeNoParamsRows($query){
+    public static function errorHandle(Exception $e){
+        echo "Server Error: ".$e->getCode()." Fix it! ";
+        $trace= $e->getTrace();
+        if($trace[0]['class']!=""){
+            $class=$trace[0]['class'];
+        }
 
-        $stmt = self::$connection->prepare($query);
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $result;
+        $method=$trace[0]['function'];
+        $file= $trace[0]['file'];
+        $line= $trace[0]['line'];
+
+        $ExceptionOutput= $e->getMessage()." | Class in Metoda: ".$class."->".$method." | File: ".$file." | Line: ".$line;
+        echo $ExceptionOutput;
     }
-
-   public static function errorHandle(Exception $e){
-    echo "Server Error: ".$e->getCode()." Fix it! ";
-    $trace= $e->getTrace();
-    if($trace[0]['class']!=""){
-        $class=$trace[0]['class'];
-    }
-
-    $method=$trace[0]['function'];
-    $file= $trace[0]['file'];
-    $line= $trace[0]['line'];
-
-    $ExceptionOutput= $e->getMessage()." | Class in Metoda: ".$class."->".$method." | File: ".$file." | Line: ".$line;
-    echo $ExceptionOutput;
-}
 
 }
 ?>

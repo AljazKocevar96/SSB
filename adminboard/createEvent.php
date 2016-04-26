@@ -1,6 +1,6 @@
 <?php
-include_once "./header.php";
-include_once "./core/session.php";
+include_once "header.php";
+include_once "core/session.php";
 ?>
 
 <style>
@@ -85,7 +85,7 @@ include_once "./core/session.php";
 
                     <div class="col-lg-10">
                         <div style="margin-top: 0.8em; margin-right: 1em; ">
-                            <button id="submit" type="button" class="btn btn-primary pull-right disabled">Potrdi <i
+                            <button id="submit" type="button" class="btn btn-primary pull-right ">Potrdi <i
                                     class="fa fa-chevron-right"></i></button>
                         </div>
                     </div>
@@ -99,6 +99,12 @@ include_once "./core/session.php";
     $(document).ready(function () {
 
         $("#submit").click(function () {
+
+            alert("Neki");
+        });
+    });
+
+   /*     $("#submit").click(function () {
             var ime = $("#ime").val();
             var lokacija = $("#lokacija").val();
             var start_date = $("#openingDate").val();
@@ -134,7 +140,7 @@ include_once "./core/session.php";
         if (ime.length > 0 && lokacija.length > 0 && start_date.length > 0 && end_date.length > 0 && description.length > 0) {
             $("#submit").removeClass('disabled');
         }
-    }, 100);
+    }, 100);*/
 
 </script>
 </body>
